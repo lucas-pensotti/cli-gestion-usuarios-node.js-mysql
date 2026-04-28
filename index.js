@@ -13,10 +13,11 @@ switch(operation) {
         resultado = await createUser(parameters[1], parameters[2], parameters[3])
         break
     case "update":
-        resultado = updateUser()
+        const updates = { username: parameters[1], email: parameters[2], password: parameters[3] }
+        resultado = await updateUser()
         break
     case "delete":
-        resultado = deleteUser()
+        resultado = await deleteUser(parameters[1])
         break  
     default:
         resultado = "Operación inválida"

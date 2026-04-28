@@ -14,7 +14,7 @@ switch(operation) {
         break
     case "update":
         const updates = { username: parameters[1], email: parameters[2], password: parameters[3] }
-        resultado = await updateUser()
+        resultado = await updateUser(parameters[4], updates)
         break
     case "delete":
         resultado = await deleteUser(parameters[1])

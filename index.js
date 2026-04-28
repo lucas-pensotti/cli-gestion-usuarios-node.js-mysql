@@ -10,7 +10,7 @@ switch(operation) {
         resultado = getUsers()
         break
     case "add":
-        resultado = createUser()
+        resultado = createUser(parameters[1], parameters[2], parameters[3])
         break
     case "update":
         resultado = updateUser()

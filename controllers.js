@@ -2,15 +2,22 @@ const getUsers = () => {
     return "Obteniendo usuarios"
 }
 
-const createUser = () => {
-    return "Usuario creado"
+const createUser = (username, email, password) => {
+    const newUser = {
+        id: crypto.randomUUID(),
+        username: username,
+        email: email,
+        password: password
+    }
+
+    return newUser
 }
 
-const updateUser = () => {
+const updateUser = (id, updates) => {
     return "Usuario actualizado"
 }
 
-const deleteUser = () => {
+const deleteUser = (id) => {
     return "Usuario borrado"
 }
 

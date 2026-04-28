@@ -1,18 +1,20 @@
 import { baseDeDatos } from "./config.js"
 
-const getUsers = () => {
-    return "Obteniendo usuarios"
+const getUsers = async () => {
+    const q = `SELECT * FROM users`
+    const [respuesta] = await baseDeDatos.query(q)
+    return respuesta
 }
 
-const createUser = (username, email, password) => {
-    const newUser = {
-        id: crypto.randomUUID(),
-        username: username,
-        email: email,
-        password: password
-    }
+const createUser = async (username, email, password) => {
+    
+    const q = `INSERT INTO users (id, username, email, password) VALUES (?,?,?,?)`
 
-    return newUser
+    const [respuesta] = await baseDeDatos.query(q, [crypto.randomUUID(), username, email, password])
+
+    if (respuesta.serverStatus === 2) {
+        return "usuario creado exitosamente"
+    }
 }
 
 const updateUser = (id, updates) => {

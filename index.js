@@ -7,10 +7,10 @@ let resultado
 
 switch(operation) {
     case "get":
-        resultado = getUsers()
+        resultado = await getUsers()
         break
     case "add":
-        resultado = createUser(parameters[1], parameters[2], parameters[3])
+        resultado = await createUser(parameters[1], parameters[2], parameters[3])
         break
     case "update":
         resultado = updateUser()

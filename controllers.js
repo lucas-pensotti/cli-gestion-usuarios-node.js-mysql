@@ -15,14 +15,6 @@ const createUser = async (username, email, password) => {
     if (respuesta.serverStatus === 2) {
         return "usuario creado exitosamente"
     }
-
-    const q = `INSERT INTO users (id, username, email, password) VALUES (?,?,?,?)`
-
-    const [respuesta] = await baseDeDatos.query(q, [crypto.randomUUID(), username, email, password])
-
-    if (respuesta.serverStatus === 2) {
-        return "usuario creado exitosamente"
-    }
 }
 
 const updateUser = async (id, updates) => {

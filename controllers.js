@@ -1,3 +1,5 @@
+import { baseDeDatos } from "./config.js"
+
 const getUsers = () => {
     return "Obteniendo usuarios"
 }

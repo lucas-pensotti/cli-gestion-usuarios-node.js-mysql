@@ -7,6 +7,31 @@ const getUsers = async () => {
 }
 
 const createUser = async (username, email, password) => {
+    
+    // - Campos onligatorios
+    if (!username || !email || !password) {
+        return "Los campos username, email y password son obligatorios"
+    }
+
+    // - El email debe ser gmail
+    if (!email.endsWith("gmail.com")) {
+        return "El email debería terminar en gmail.com"
+    }
+
+    // - Validación del @
+    if (!email.includes("@")) {
+        return "Sin el @ el email no es válido"
+    }
+
+    // - Caracteres mínimos de usuario
+    if (username.length < 3) {
+        return "El usuario debe tener mínimo 3 caracteres"
+    }
+
+    // - Caracteres mínimos de contraseña
+    if (password.length < 5) {
+        return "La contraseña debe tener mínimo 5 caracteres"
+    }
 
     const q = `INSERT INTO users (id, username, email, password) VALUES (?,?,?,?)`
 
